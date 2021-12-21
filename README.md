@@ -29,6 +29,10 @@ devtools::install_github("atsa-es/atsalibrary")
 There are 42 years of data (1964–2005):
 
 ```R
+library(atsalibrary)
+library(MARSS) # location of SalmonSurvCUI data
+data(package="MARSS")
+# attach dataset
 data(SalmonSurvCUI)
 years <- SalmonSurvCUI[, 1]
 TT <- length(years)
