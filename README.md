@@ -78,6 +78,7 @@ And now we can fit our DLM with the MARSS() function.
 dlm1 <- MARSS(dat, inits = inits.list, model = mod.list)
 ```
 
+```text
 Success! abstol and log-log tests passed at 115 iterations.
 Alert: conv.test.slope.tol is 0.5.
 Test with smaller values (<0.1) to ensure convergence.
@@ -99,4 +100,4 @@ Initial states (x0) defined at t=0
 
 Standard errors have not been calculated. 
 Use MARSSparamCIs to compute CIs and bias estimates.
-
+```
