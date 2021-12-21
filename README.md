@@ -23,7 +23,7 @@ install.packages('MARSS')
 library(devtools)
 # Windows users will likely need to set this
 # Sys.setenv('R_REMOTES_NO_ERRORS_FROM_WARNINGS' = 'true')
-devtools::install_github("nwfsc-timeseries/atsalibrary")
+devtools::install_github("atsa-es/atsalibrary")
 ```
 
 There are 42 years of data (1964–2005):
