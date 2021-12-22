@@ -102,7 +102,7 @@ Standard errors have not been calculated.
 Use MARSSparamCIs to compute CIs and bias estimates.
 ```
 
-```
+```R
 # get list of Kalman filter output
 kf.out <- MARSSkfss(dlm1)
 # forecasts of regr parameters; 2xT matrix
@@ -112,4 +112,32 @@ fore.mean <- vector()
 for (t in 1:TT) {
 fore.mean[t] <- Z[, , t] %*% eta[, t, drop = F]
 }
+
+# variance of regr parameters; 1x2xT array
+Phi <- kf.out$Vtt1
+# obs variance; 1x1 matrix
+R.est <- coef(dlm1, type = "matrix")$R
+# ts of Var(forecasts)
+fore.var <- vector()
+for (t in 1:TT) {
+tZ <- matrix(Z[, , t], m, 1) # transpose of Z
+fore.var[t] <- Z[, , t] %*% Phi[, , t] %*% tZ + R.est
+}
+
+# forecast errors
+innov <- kf.out$Innov
+
+# Q-Q plot of innovations
+qqnorm(t(innov), main = "", pch = 16, col = "blue")
+# add y=x line for easier interpretation
+qqline(t(innov))
+
+# p-value for t-test of H0: E(innov) = 0
+t.test(t(innov), mu = 0)$p.value
+
+# plot ACF of innovations
+acf(t(innov), lag.max = 10)
+
+
 ```
+
