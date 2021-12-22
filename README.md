@@ -40,8 +40,6 @@ TT <- length(years)
 dat <- matrix(SalmonSurvCUI[, 2], nrow = 1)
 ```
 
-![alt text](https://github.com/[goephs]/[DynamicLinearModel_Survival-Of-Chinook-Salmon]/data_history_plot.png?raw=true)
-
 As we have seen in other chapters, standardizing our covariate(s) to have zero-mean and unit-variance can be helpful in model fitting and interpretation. In this case, it is a good idea because the variance of CUI.apr is orders of magnitude greater than survival.
 
 ```R
@@ -49,7 +47,16 @@ CUI <- SalmonSurvCUI[, "CUI.apr"]
 CUI.z <- zscore(CUI)
 # number of state = # of regression params (slope(s) + intercept)
 m <- 1 + 1
+
+#plot the data
+par(mfrow = c(m, 1), mar = c(4, 4, 0.1, 0), oma = c(0, 0, 2, 0.5))
+plot(years, dat, xlab = "", ylab = "Logit(s)", bty = "n", xaxt = "n", pch = 16, col = "darkgreen", type = "b")
+plot(years, CUI.z, xlab = "", ylab = "CUI", bty = "n", xaxt = "n", pch = 16, col = "blue", type = "b")
+axis(1, at = seq(1965, 2005, 5))
+mtext("Year of ocean entry", 1, line = 3)
 ```
+
+<a href="url"><img src="https://github.com/goephs/DynamicLinearModel_Survival-Of-Chinook-Salmon/blob/main/data_history_plot.png" height="585" width="724" ></a>
 
 Next, we need to set up the appropriate matrices and vectors for the
 MARSS() function. Let’s begin with those for the process equation because
