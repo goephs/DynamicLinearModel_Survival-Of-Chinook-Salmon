@@ -40,6 +40,8 @@ TT <- length(years)
 dat <- matrix(SalmonSurvCUI[, 2], nrow = 1)
 ```
 
+![alt text](https://github.com/[goephs]/[DynamicLinearModel_Survival-Of-Chinook-Salmon]/data_history_plot.png?raw=true)
+
 As we have seen in other chapters, standardizing our covariate(s) to have zero-mean and unit-variance can be helpful in model fitting and interpretation. In this case, it is a good idea because the variance of CUI.apr is orders of magnitude greater than survival.
 
 ```R
