@@ -130,7 +130,7 @@ for (i in 1:m) {
 axis(1, at = seq(1965, 2005, 5))
 mtext("Year of ocean entry", 1, line = 3)
 ```
-<a href="url"><img src="https://github.com/goephs/DynamicLinearModel_Survival-Of-Chinook-Salmon/blob/main/plotdlm1.png height="591" width="695" ></a>
+<a href="url"><img src="https://github.com/goephs/DynamicLinearModel_Survival-Of-Chinook-Salmon/blob/main/plotdlm1.png" height="591" width="695" ></a>
 
 ```R
 # get list of Kalman filter output
