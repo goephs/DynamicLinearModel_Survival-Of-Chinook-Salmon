@@ -155,6 +155,23 @@ tZ <- matrix(Z[, , t], m, 1) # transpose of Z
 fore.var[t] <- Z[, , t] %*% Phi[, , t] %*% tZ + R.est
 }
 
+par(mfrow=c(1,1))
+par(mar = c(4, 4, 0.1, 0), oma = c(0, 0, 2, 0.5))
+ylims <- c(min(fore.mean - 2 * sqrt(fore.var)), max(fore.mean + 2 * sqrt(fore.var)))
+plot(years, t(dat),
+  type = "p", pch = 16, ylim = ylims,
+  col = "blue", xlab = "", ylab = "Logit(s)", xaxt = "n"
+)
+lines(years, fore.mean, type = "l", xaxt = "n", ylab = "", lwd = 3)
+lines(years, fore.mean + 2 * sqrt(fore.var))
+lines(years, fore.mean - 2 * sqrt(fore.var))
+axis(1, at = seq(1965, 2005, 5))
+mtext("Year of ocean entry", 1, line = 3)
+```
+
+<a href="url"><img src="https://github.com/goephs/DynamicLinearModel_Survival-Of-Chinook-Salmon/blob/main/plot-dlm-Forecast-Logit.png" height="591" width="695" ></a>
+
+```R
 # forecast errors
 innov <- kf.out$Innov
 
