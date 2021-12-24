@@ -196,12 +196,22 @@ mtext("Year of ocean entry", 1, line = 3)
 
 ```R
 innov <- kf.out$Innov
-
+# use layout to get nicer plots
+layout(matrix(c(0, 1, 1, 1, 0), 1, 5, byrow = TRUE))
+# set up L plotting space
+par(mar = c(4, 4, 1, 0), oma = c(0, 0, 0, 0.5))
 # Q-Q plot of innovations
 qqnorm(t(innov), main = "", pch = 16, col = "blue")
-# add y=x line for easier interpretation
 qqline(t(innov))
+# set up R plotting space
+# par(mar=c(4,0,1,1)) #, oma=c(0,0,0,0.5))
+# boxplot of innovations
+# boxplot(t(innov), axes=FALSE)
+```
 
+<a href="url"><img src="https://github.com/goephs/DynamicLinearModel_Survival-Of-Chinook-Salmon/blob/main/plot-dlmQQ.png" height="591" width="695" ></a>
+
+```R
 # p-value for t-test of H0: E(innov) = 0
 t.test(t(innov), mu = 0)$p.value
 
