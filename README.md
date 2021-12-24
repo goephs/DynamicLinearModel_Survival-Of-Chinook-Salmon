@@ -56,7 +56,7 @@ axis(1, at = seq(1965, 2005, 5))
 mtext("Year of ocean entry", 1, line = 3)
 ```
 
-<a href="url"><img src="https://github.com/goephs/DynamicLinearModel_Survival-Of-Chinook-Salmon/blob/main/data_history_plot.png" height="585" width="724" ></a>
+<a href="url"><img src="https://github.com/goephs/DynamicLinearModel_Survival-Of-Chinook-Salmon/blob/main/data_history_plot.png" height="591" width="695" ></a>
 
 Next, we need to set up the appropriate matrices and vectors for the
 MARSS() function. Let’s begin with those for the process equation because
