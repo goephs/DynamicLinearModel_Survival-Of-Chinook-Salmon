@@ -215,9 +215,13 @@ qqline(t(innov))
 # p-value for t-test of H0: E(innov) = 0
 t.test(t(innov), mu = 0)$p.value
 
-# plot ACF of innovations
-acf(t(innov), lag.max = 10)
-
+# use layout to get nicer plots
+layout(matrix(c(0, 1, 1, 1, 0), 1, 5, byrow = TRUE))
+# set up plotting space
+par(mar = c(4, 4, 1, 0), oma = c(0, 0, 0, 0.5))
+# ACF of innovations
+acf(t(innov), lwd = 2, lag.max = 10)
 
 ```
 
+<a href="url"><img src="https://github.com/goephs/DynamicLinearModel_Survival-Of-Chinook-Salmon/blob/main/plot-dlm-ACF.png" height="591" width="695" ></a>
